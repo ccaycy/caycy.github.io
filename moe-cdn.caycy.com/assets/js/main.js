@@ -35,18 +35,15 @@ function getAchives() {
     })
 }
 
-function gethitokoto() {
+function getHitokoto() {
     $.ajax({
-        url: "https://api.lwl12.com/hitokoto/main/get?encode=json",
-        dataType: "jsonp",
-        async: true,
-        jsonp: "callback",
-        jsonpCallback: "echokoto",
+        url: "https://v1.hitokoto.cn/",
+        dataType: "json",
         success: function (result) {
-            write(result.hitokoto);
+            write(result.hitokoto + " —— " + result.from);
         },
         error: function () {
-            write("看啥看你个* ");
+            write("caycy");
         }
     });
 }
